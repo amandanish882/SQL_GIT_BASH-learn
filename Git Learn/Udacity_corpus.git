@@ -1,0 +1,495 @@
+cd 'Git learn'
+
+If you want to follow along with me:
+
+create a directory called udacity-git-course
+inside that, create another directory called new-git-project
+use the cd command to move into the new-git-project directory
+
+--------------------------------------
+
+## git init
+
+---------------------------------
+
+Git Init's Effect
+Running the git init command sets up all of the necessary files and directories that Git will use to keep track of everything. All of these 
+files are stored in a directory called .git (notice the . at the beginning - that means it'll be a hidden directory on Mac/Linux). This .git 
+directory is the "repo"! This is where git records all of the commits and keeps track of everything
+
+
+Before you can make commits or do anything else with a git repository, the repository needs to actually exist. To create a new repository with Git, we'll use the git init command.
+
+The init subcommand is short for "initialize", which is helpful because it's the command that will do all of the initial setup of a repository. We'll look at what it does in just a second.
+
+Required Commands
+Heads up! We'll be using the following terminal commands in this lesson:
+
+ls - used to list files and directories
+mkdir - used to create a new directory
+cd - used to change directories
+rm - used to remove files and directories
+If you're not sure how to use them, check out our course Shell Workshop!
+
+We'll also be using the idea of the current working directory, the directory that your shell is "looking at" right now. Using cd changes your working directory, and using ls (by itself) lists the files in the working directory. If you lose track of what your shell's working directory is, you can print its name with the pwd command (which stands for "print working directory").
+
+Create Course Directories
+We're about to create a new project for this course. Since we're all professionals, we want our projects organized. If you already have a location on your computer where you put all your projects, then keep doing what you're doing. I'll be storing all of my work in a directory called udacity-git-course.
+
+If you want to follow along with me:
+
+create a directory called udacity-git-course
+inside that, create another directory called new-git-project
+use the cd command to move into the new-git-project directory
+If you're a copy/paster like me, just run this command on the terminal - mkdir -p udacity-git-course/new-git-project && cd $_ (Before running this command, make sure you cd to where you want these files stored. For example, if you want the files stored on your Desktop, then make sure you cd to the Desktop before running the command.)
+
+If you're all set, then your terminal should be "inside" the new-git-project directory and look like this:
+
+The Terminal application located in the new-git-project directory
+The Terminal application located in the new-git-project directory.
+
+Git Init
+Fantastic work - we're all set up and ready to start using the git init command!
+
+This is one of the easiest commands to run. All you have to do is run git init on the terminal. That's it! Go ahead, why not give it a try right now!
+
+The terminal application showing the `git init` command being run. The command initializes an empty Git repository in the current directory.
+The terminal application showing the git init command being run. The command initializes an empty Git repository in the current directory.
+
+QUIZ QUESTION
+Did you run git init yet? If not, do it now because you'll need it to answer this quiz!
+
+After running git init, the text "Initialized empty Git repository in " followed by a path. should have appeared. The question is, has anything changed with your command prompt? If so, what?
+
+Yes - I now see the word "master".
+
+-----------------------------------------------------------------------------------------
+
+
+Git Init's Effect
+Running the git init command sets up all of the necessary files and directories that Git will use to keep track of everything. All of these files are stored in a directory called .git (notice the . at the beginning - that means it'll be a hidden directory on Mac/Linux). This .git directory is the "repo"! This is where git records all of the commits and keeps track of everything!
+
+Let's take a brief look at the contents of the .git directory.
+
+WARNING: Don't directly edit any files inside the .git directory. This is the heart of the repository. If you change file names and/or file content, git will probably lose track of the files that you're keeping in the repo, and you could lose a lot of work! It's okay to look at those files though, but don't edit or delete them.
+
+Mac's Finder window showing the contents of the hidden ".git" directory.
+Mac's Finder window showing the contents of the hidden ".git" directory.
+
+.Git Directory Contents
+We're about to take a look at the .git directory...it's not vital for this course, though, so don't worry about memorizing anything, it's here if you want to dig a little deeper into how Git works under the hood.
+
+Here's a brief synopsis on each of the items in the .git directory:
+
+config file - where all project specific configuration settings are stored.
+From the Git Book:
+
+Git looks for configuration values in the configuration file in the Git directory (.git/config) of whatever repository you’re currently using. These values are specific to that single repository.
+
+For example, let's say you set that the global configuration for Git uses your personal email address. If you want your work email to be used for a specific project rather than your personal email, that change would be added to this file.
+
+description file - this file is only used by the GitWeb program, so we can ignore it
+hooks directory - this is where we could place client-side or server-side scripts that we can use to hook into Git's different lifecycle events
+info directory - contains the global excludes file
+objects directory - this directory will store all of the commits we make
+refs directory - this directory holds pointers to commits (basically the "branches" and "tags")
+
+-------------------------------
+git clone https://github.com/udacity/course-git-blog-project
+
+------------------------------------
+git clone https://github.com/udacity/course-git-blog-project newname 
+
+will create repository with a new name
+
+-----------------------------------
+
+git status
+
+-----------------------------------
+
+
+
+
+
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+The output tells us two things:
+
+On branch master – this tells us that Git is on the master branch. You've got a description of a branch on your terms sheet 
+so this is the "master" branch (which is the default branch). We'll be looking more at branches in lesson 5
+Your branch is up-to-date with 'origin/master'. – Because git clone was used to copy this repository from another computer, 
+this is telling us if our project is in sync with the one we copied from. We won't be dealing with the project on the other computer,
+ so this line can be ignored.
+nothing to commit, working directory clean – this is saying that there are no pending changes.
+
+--------------------------------------
+
+git log 
+
+
+and
+
+
+git show
+
+git show <SHAid>
+
+--------------------------------------
+
+git log
+
+git log --oneline #display in one line
+
+git log --stat # display the things changed
+
+-----------------------------------
+
+
+$ git log -p fdf5493
+
+
+
+(use "git rm --cached <file>..." to unstage
+
+removes file fom staging index
+
+--------------------------------------
+
+git add .
+
+--------------------------------------
+
+
+git commit
+
+------------------------------------------
+
+
+
+$ git commit -m "Initial commit"
+-----------------------------------------
+
+
+git diff
+
+#gives a difference of current local directory and repository at head
+
+---------------------------------------
+
+.gitignore  # files to store which you don't want to add
+
+----------------------------------------
+
+git tag -a v1.0 ##Tagging to most recent commit
+
+----------------------------------------
+
+git tag  ## Watch tags
+
+
+-------------------------------------
+git tag -d v1.0
+
+## delete tags
+
+--------------------------------------
+
+## adding tag to a SHA
+
+git tag -a 
+
+------------------------------------
+
+## git branch 
+
+list branch names in repository
+
+create new branches
+
+delete branches
+--------------------------------
+
+
+git branch #list out branches in repository , and the active branch
+
+-----------------------------
+
+
+git branch sidebar # creates a new banch
+
+
+-------------------------------
+
+git checkout sidebar
+
+#####to switch to branch sidebar
+
+
+So this will remove all of the files that are referenced by commits in the master branch.
+ It will replace them with the files that are referenced by the commits in the sidebar branch.
+ This is very important to understand, so go back and read these last two sentences.
+----------------------------------
+
+git log --oneline --decorate 
+
+##used to display branches as well
+
+--------------------------------------
+
+git branch alternate 42a69f
+
+
+#Will create a branch alternate and point to commit SHA id 
+
+-------------------------------------
+
+git branch -D sidebar
+
+
+## deletes the sidebar branch
+
+--------------------------------------
+
+git checkout -b footer master
+
+
+# Creates a new branch foot at master
+
+--------------------------------------
+
+git log --oneline --decorate
+
+## short version of log with decorations on master
+
+--------------------------------------
+git log --oneline --decorate --graph --all
+
+## shows log from all branches
+
+----------------------------------
+
+git reset --hard HEAD^
+
+#undo merge from all branches
+
+----------------------------------
+
+git merge footer # to merge changes of other branch into current branch
+
+Fast-forward merge – the branch being merged in must be ahead of the 
+checked out branch. The checked out branch's pointer will just be moved 
+forward to point to the same commit as the other branch.
+the regular type of merge
+two divergent branches are combined
+a merge commit is created
+
+--------------------------------------------------
+
+Merge Conflict Indicators Explanation
+The editor has the following merge conflict indicators:
+
+<<<<<<< HEAD everything below this line (until the next indicator) shows you what's on the current branch
+||||||| merged common ancestors everything below this line (until the next indicator) shows you what the original lines were
+======= is the end of the original lines,
+ everything that follows (until the next indicator) is what's on the 
+ branch that's being merged in
+>>>>>>> heading-update is the ending indicator of what's on the 
+branch that's being merged in (in this case, the heading-update branch)
+
+
+------------------------------------------
+
+git commit --amend
+
+## Changing the most recent commit name
+
+## also , undo recent commits
+edit the file(s)
+save the file(s)
+stage the file(s)
+and run git commit --amend
+
+--------------------------
+
+
+git revert <SHAID>
+
+# Reverts the commit made in the shaid, (makes a new commit)
+
+----------------------------------
+
+git reset --mixed HEAD^
+
+# Sends the changes of recent parent to working directory
+
+git reset --soft HEAD^
+
+# Sends the changes of recent parent to staging index
+
+git reset --hard HEAD^
+
+# Sends the changes of recent parent to trash/delete
+
+
+-----------------------------------------------------------------------
+
+#Github
+
+Git remote
+
+---------------------------------------
+
+#selective checkout 
+
+git checkout -- index.html
+
+----------------------------------------
+
+Remember 
+
+Git is a version control tool
+GitHub is a service to host Git projects
+
+git remote
+# used to create and manage new repositories
+---------------------------------------
+
+git add README.md
+
+
+#adds a readme file
+--------------------------------------
+
+git remote add origin https://github.com/amandanish882/my-travel-plans.git
+
+# connects the remote repository with working directory
+
+# add remote repository url to a shortname origin
+
+---------------------------------------
+
+git remote -v #to verify if repository added correctly
+
+-----------------------------------------
+#git push sends all the changes from local to remote repo
+
+$ git push <remote-shortname> <branch>
+
+Note that this also creates a tracking branch in local directory which 
+tracks the progress of master branch in remote directory (origin)
+
+---------------------------------------------
+
+you provided the shortname for the remote repository and then the name of the branch you want to pull in the commits.
+
+$ git pull origin master
+
+the branch that appears in the local repository is actually tracking 
+a branch in the remote repository (e.g. origin/master in the local repository 
+is called a tracking branch because it's tracking the progress of the master branch on 
+the remote repository that has the shortname "origin").
+
+
+
+#Updates the local tracking branch with remote master branch
+#This pulls the commits to origin/master and merges the master to origin/master
+
+----------------------------------------------
+
+$git fetch origin master
+
+#This only pulls the changes from remote branch to local 
+branch but dosen't merges with local master
+
+One main point when you want to 
+use git fetch rather than git pull is if your remote 
+branch and your local branch both have changes that neither of the other ones has. In this case, you want to fetch the remote changes to get them in your local branch and then perform a merge manually. 
+Then you can push that new merge commit back to the remote.
+
+---------------------------------------------------------------
+
+just click fork
+
+This concept of "forking" is also different from "cloning". When you 
+clone a repository, you get an identical copy of the repository. But
+ cloning happens on your local machine and you clone a remote repository.
+ When you fork a repository, a new duplicate copy of the remote 
+ repository is created. This new copy is also a remote repository, but
+ it now belongs to you.
+
+Forking is an action that's done on a hosting service, like GitHub.
+ Forking a repository creates an identical copy of the original repository
+ and moves this copy to your account. You have total control over this forked
+ repository. Modifying your forked repository does not alter the original 
+ repository in any way.
+ 
+ --------------------------------
+ 
+ 
+ $git shortlog 
+ 
+ Summary Commits made by all collaborators
+ 
+ -------------------------------------
+ 
+ $git shortlog -s -name
+ 
+ Number of commits sorted numerically
+ 
+ $ git log --author=Surma
+ 
+ Filter logs by author
+ 
+ $ git log --grep=bug
+ 
+ Filter logs by 'bug' word
+ 
+ -----------------------------------------------
+ 
+ 
+ #Pull Request
+ 
+ A pull request is a request to the original or source repository's maintainer 
+ to include changes in their project that you made in
+ your fork of their project. You are requesting that they pull in 
+ changes you've made.
+ 
+ ------------------------------------------------
+ 
+ 
+ A pull request is a request for the source repository to pull in your commits and merge them with their project. To create a pull request, a couple of things need to happen:
+
+you must fork the source repository
+clone your fork down to your machine
+make some commits (ideally on a topic branch!)
+push the commits back to your fork
+create a new pull request and choose the branch that has your new commits
+
+
+-------------------------------------
+
+ $git remote rename mine origin
+ 
+ #change origin name to mine
+
+----------------------
+
+watching
+
+----------------------------
+
+git rebase
+
+
+#squashing, take a number of commits and combine then into one
+
+
+---------------------------------
+
+
+git rebase -i HEAD~3
+
+
+combine previous three commits 
